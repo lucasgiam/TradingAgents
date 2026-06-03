@@ -26,6 +26,7 @@ def create_portfolio_manager(llm):
 
     def portfolio_manager_node(state) -> dict:
         instrument_context = get_instrument_context_from_state(state)
+        ticker = state["company_of_interest"]
 
         history = state["risk_debate_state"]["history"]
         risk_debate_state = state["risk_debate_state"]
@@ -64,8 +65,8 @@ def create_portfolio_manager(llm):
 Be decisive and ground every conclusion in specific evidence from the analysts.
 
 **Final Recommendation:**
-The very last line of your response must be exactly in this format (replace TICKER with the actual ticker symbol):
-`TICKER: GO` or `TICKER: NO GO`
+The very last line of your response must be exactly in this format:
+`{ticker}: GO` or `{ticker}: NO GO`
 - Use **GO** if the rating is Buy or Overweight
 - Use **NO GO** if the rating is Hold, Underweight, or Sell{get_language_instruction()}"""
 
