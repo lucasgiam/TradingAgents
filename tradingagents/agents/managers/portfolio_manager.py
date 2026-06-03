@@ -61,7 +61,13 @@ def create_portfolio_manager(llm):
 
 ---
 
-Be decisive and ground every conclusion in specific evidence from the analysts.{get_language_instruction()}"""
+Be decisive and ground every conclusion in specific evidence from the analysts.
+
+**Final Recommendation:**
+The very last line of your response must be exactly in this format (replace TICKER with the actual ticker symbol):
+`TICKER: GO` or `TICKER: NO GO`
+- Use **GO** if the rating is Buy or Overweight
+- Use **NO GO** if the rating is Hold, Underweight, or Sell{get_language_instruction()}"""
 
         final_trade_decision = invoke_structured_or_freetext(
             structured_llm,
