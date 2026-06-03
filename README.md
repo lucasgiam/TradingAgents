@@ -155,7 +155,7 @@ export ALPHA_VANTAGE_API_KEY=...   # Alpha Vantage
 
 For enterprise providers (e.g. Azure OpenAI, AWS Bedrock), copy `.env.enterprise.example` to `.env.enterprise` and fill in your credentials.
 
-For local models, configure Ollama with `llm_provider: "ollama"`. The default endpoint is `http://localhost:11434/v1`; set `OLLAMA_BASE_URL` to point at a remote `ollama-serve`. Pull models with `ollama pull <name>`, and pick "Custom model ID" in the CLI for any model not listed by default.
+For local models, the CLI uses Ollama with `qwen3:14b` by default. The endpoint defaults to `http://localhost:11434/v1`; set `OLLAMA_BASE_URL` to point at a remote `ollama-serve`. Pull the model with `ollama pull qwen3:14b` before running.
 
 Alternatively, copy `.env.example` to `.env` and fill in your keys:
 ```bash
@@ -169,7 +169,7 @@ Launch the interactive CLI:
 tradingagents          # installed command
 python -m cli.main     # alternative: run directly from source
 ```
-You will see a screen where you can select your desired tickers, analysis date, LLM provider, research depth, and more.
+You will be prompted for the ticker symbol and analysis date. All other settings are fixed: output language (English), all four analyst agents (market, sentiment, news, fundamentals), shallow research depth, Ollama as the LLM provider, and `qwen3:14b` for both quick and deep thinking agents.
 
 ### Markets and tickers
 
