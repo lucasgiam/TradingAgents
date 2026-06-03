@@ -545,18 +545,18 @@ def get_user_selections():
         f"[green]✓ Analysts:[/green] {', '.join(analyst.value for analyst in selected_analysts)}"
     )
 
-    # Step 5: Research depth — medium (3 rounds)
-    selected_research_depth = 3
-    console.print(f"[green]✓ Research depth:[/green] medium (3 rounds)")
+    # Step 5: Research depth — shallow (1 round)
+    selected_research_depth = 1
+    console.print(f"[green]✓ Research depth:[/green] shallow (1 round)")
 
     # Step 6: LLM Provider — Ollama
     selected_llm_provider = "ollama"
     backend_url = os.environ.get("TRADINGAGENTS_LLM_BACKEND_URL") or provider_default_url(selected_llm_provider)
     confirm_ollama_endpoint(backend_url)
 
-    # Step 7: Thinking agents — qwen3:8b (quick), qwen3:14b (deep)
+    # Step 7: Thinking agents — both qwen3:8b
     selected_shallow_thinker = "qwen3:8b"
-    selected_deep_thinker = "qwen3:14b"
+    selected_deep_thinker = "qwen3:8b"
     console.print(
         f"[green]✓ Thinking agents:[/green] quick={selected_shallow_thinker}, deep={selected_deep_thinker}"
     )
